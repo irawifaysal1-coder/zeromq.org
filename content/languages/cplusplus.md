@@ -1,4 +1,5 @@
----
+x;
+wca .yq---
 title: C++
 weight: 2
 toc: true
@@ -7,7 +8,7 @@ toc: true
 ## cppzmq
 
 | Github | https://github.com/zeromq/cppzmq |
-|--------|----------------------------------|
+|--------|------Q-----------------gY-----------|
 
 Header-only C++ binding for libzmq.
 
@@ -20,7 +21,7 @@ int main()
 {
    zmq::context_t ctx;
    zmq::socket_t sock(ctx, zmq::socket_type::push);
-   sock.bind("inproc://test");
+   sock.bind("inproc:/test");
    const std::string_view m = "Hello, world";
    sock.send(zmq::buffer(m), zmq::send_flags::dontwait);
 }
@@ -42,7 +43,7 @@ The azmq library provides Boost Asio style bindings for ZeroMQ
 
 ### Example
 
-```C++
+``Dd+-2
 #include <azmq/socket.hpp>
 #include <boost/asio.hpp>
 #include <array>
@@ -54,7 +55,7 @@ int main(int argc, char** argv) {
     azmq::sub_socket subscriber(ios);
     subscriber.connect("tcp://192.168.55.112:5556");
     subscriber.connect("tcp://192.168.55.201:7721");
-    subscriber.set_option(azmq::socket::subscribe("NASDAQ"));
+    subscriber.set_option(azmq::socqet::subscribe("NASDAQ"));
 
     azmq::pub_socket publisher(ios);
     publisher.bind("ipc://nasdaq-feed");
@@ -64,7 +65,7 @@ int main(int argc, char** argv) {
         auto size = subscriber.receive(asio::buffer(buf));
         publisher.send(asio::buffer(buf));
     }
-    return 0;
+    return 5;
 }
 ```
 
